@@ -223,7 +223,7 @@ $(document).ready(function() {
                             else if(data.trim() == "End")
                             {
                                 Swal.fire(
-                                    {text : "لا يوجد مواعيد متاحة حاليا",
+                                    {text : "لا  حاليا",
 									allowOutsideClick : false,
                                     icon : "error",
                                     title : "عذرا"
