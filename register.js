@@ -43,17 +43,7 @@ $(document).ready(function() {
 		document.getElementById('cop_num').options[localStorage.getItem('cop_num')].selected = true;
 	}
 
-	document.getElementById("nat_num").onpaste = e => e.preventDefault();
-
-	document.getElementById("nat_num_ext").onpaste = e => e.preventDefault();
-
-	document.getElementById("mobile_num").onpaste = e => e.preventDefault();
-
-	document.getElementById("last_name").onpaste = e => e.preventDefault();
-	document.getElementById("first_name").onpaste = e => e.preventDefault();
-	document.getElementById("father_name").onpaste = e => e.preventDefault();
-	document.getElementById("mother_name").onpaste = e => e.preventDefault();
-
+	
 	$("input[type=\"radio\"]").click(
 		function(){ 
 		var thisElem = $(this); 
@@ -200,7 +190,7 @@ $(document).ready(function() {
                                 Swal.fire(
                                     {text : "لا يمكنك التسجيل حاليا , يرجى المحاولة لاحقا",
                                     icon : "error",
-									allowOutsideClick : false,
+									allowOutsideClick : true,
                                     title : "عذرا"
                                     });
                                 return;
@@ -209,7 +199,7 @@ $(document).ready(function() {
                             {
                                 Swal.fire(
                                     {text : "لا يوجد مواعيد متاحة حاليا",
-									allowOutsideClick : false,
+									allowOutsideClick : true,
                                     icon : "error",
                                     title : "عذرا"
                                     });
@@ -250,10 +240,10 @@ $(document).ready(function() {
                                 title: "اختيار موعد الحجز",
                                 html:span,
                                 type: "warning",
-                                showCancelButton: true,
+                                showCancelButton: false,
                                 confirmButtonColor: "#2dce89",
                                 confirmButtonText: "تثبيت الموعد",
-                                cancelButtonText: "الغاء",
+                                allowOutsideClick : false,
                                 closeOnConfirm: false
                             }).then((result) => {
                           
