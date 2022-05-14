@@ -99,7 +99,7 @@ $(document).ready(function() {
             $.ajax({
                         type:"POST",
                         data:myArray1,
-                        url:"API/getava_dates.php",
+                        url:"https://syria-visa.sy/passport/API/getava_dates.php",
                         success:function(data)
                         {
 							$("body").css("cursor","default");
@@ -188,7 +188,7 @@ $(document).ready(function() {
                                      $.ajax({
                                         type:"POST",
                                         data:myArray,
-                                        url:"API/register.php",
+                                        url:"https://syria-visa.sy/passport/API/register.php",
                                         success:function(data){
                                             if(data.trim().indexOf("cannot") > -1) {
 
