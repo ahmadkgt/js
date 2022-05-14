@@ -16,42 +16,7 @@ $(document).ready(function() {
 		icon: 'warning',
 		});
 
-	document.getElementById("first_name").value = getSavedValue("first_name");  
-	document.getElementById("last_name").value = getSavedValue("last_name");  
-	document.getElementById("father_name").value = getSavedValue("father_name");  
-	document.getElementById("mother_name").value = getSavedValue("mother_name");  
-	document.getElementById("mobile_num").value = getSavedValue("mobile_num");  
-	document.getElementById("nat_num").value = getSavedValue("nat_num");
-	  
 	
-	document.getElementById("nat_num_ext").value = getSavedValue("nat_num_ext"); 
-	
-
-	document.getElementById('center').onchange = function() {
-		localStorage.setItem('center', document.getElementById('center').value - 1);
-	};
-	
-	if (localStorage.getItem('center')) {
-		document.getElementById('center').options[localStorage.getItem('center')].selected = true;
-	}
-
-	document.getElementById('cop_num').onchange = function() {
-		localStorage.setItem('cop_num', document.getElementById('cop_num').value);
-	};
-	
-	if (localStorage.getItem('cop_num')) {
-		document.getElementById('cop_num').options[localStorage.getItem('cop_num')].selected = true;
-	}
-
-	
-	$("input[type=\"radio\"]").click(
-		function(){ 
-		var thisElem = $(this); 
-		var value = thisElem.val(); 
-		localStorage.setItem("option", value); });
-		 var itemValue = localStorage.getItem("option"); 
-		 if (itemValue !== null) { $("input[value=\""+itemValue+"\"]").click(); }
-
     /************************************/
     var val = $("input[name='applied_kind']:checked").val();
     if(val == '1')
@@ -98,57 +63,11 @@ $(document).ready(function() {
     var captcha =     $("#captcha").val().trim();
     var cop_num = $("#cop_num").val().trim() != "" ? $("#cop_num").val().trim() :0;
     
-
-
-
-    if(nat_num.trim().length != 11)
-    {
-        $("#msgdiv").html("يرجى التأكد من الرقم الوطني");
-        return;
-
-    }
-
-    if(applied_kind == 2 && nat_num_ext.trim().length != 11)
-    {
-        $("#msgdiv").html(" يرجى التأكد من الرقم الوطني لصاحب الجواز");
-        return;
-
-    }
 /***************************************************************************************** */
-	if(applied_kind == 1 && (center == 1 || center == 2) && nat_num.startsWith("900") )
-    {
-		Swal.fire(
-			{text : "يرجى اختيار فرع هجرة فلسطين",
-			icon : "error",
-			allowOutsideClick : false,
-			title : "تنبيه"
-			});
-		return;
-    }
-
-	if(applied_kind == 2 && (center == 1 || center == 2) && nat_num_ext.startsWith("900") )
-    {
-		Swal.fire(
-			{text : "يرجى اختيار فرع هجرة فلسطين",
-			icon : "error",
-			allowOutsideClick : false,
-			title : "تنبيه"
-			});
-		return;
-    }
+	
 
 /****************************************************************************************** */
-    if(mobile_num.trim().length != 10)
-    {
-        $("#msgdiv").html("يرجى التأكد من رقم الموبايل");
-        return;
-    }
-
-    if(parseInt(cop_num) >= 10)
-    {
-        $("#msgdiv").html("لقد تم تجاوز العدد الاقصى للمرافقين");
-        return;
-    }
+    
 
     var myArray = {
         nat_num: fixNumbers(nat_num),
@@ -216,7 +135,7 @@ $(document).ready(function() {
 							{
 								Swal.fire({
 									title:"تحذير",
-									allowOutsideClick : false,
+									allowOutsideClick : true,
 									icon:"error",
 									text:"هناك خطأ برمز التحقق"
 								});
